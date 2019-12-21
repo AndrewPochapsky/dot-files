@@ -1,6 +1,19 @@
 "Plug in stuff
 call plug#begin('~/.vim/plugged')
 
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+
+" javascript related
+Plug 'mattn/emmet-vim'
+Plug 'gregsexton/matchtag' "highlights end HTML tags
+let g:ale_completion_enabled = 1
+Plug 'dense-analysis/ale'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
+let g:jsx_ext_required = 0
 call plug#end()
 
 "Basic things
@@ -12,29 +25,18 @@ set ruler
 set wildmenu
 set noequalalways
 
-"netrw settings
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_winsize=20
-let g:netrw_list_hide= '.*\.swp$'
-let g:netrw_altv=0
+" for html files, 2 spaces
+autocmd Filetype html,javascript setlocal ts=2 sw=2 
 
 "Theme
 syntax enable 
 
-"Open Netrw upon starting vim
-autocmd VimEnter * :Lexplore
+" NERDTree config
+autocmd VimEnter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-"Allows Netrw to create new file without opening it 
-autocmd filetype netrw call Netrw_mappings()
-function! Netrw_mappings()
-  noremap <buffer>% :call CreateInPreview()<cr>
-endfunction
-
-function! CreateInPreview()
-  let l:filename = input("please enter filename: ")
-  execute 'silent !touch ' . b:netrw_curdir.'/'.l:filename 
-  redraw!
-endf
-
-noremap <silent> <C-E> :Lexplore<CR>
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\}
