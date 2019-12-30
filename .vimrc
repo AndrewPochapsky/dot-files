@@ -20,6 +20,7 @@ call plug#end()
 "Basic things
 set incsearch
 set ignorecase
+set hlsearch
 set smartcase
 set autoindent
 set backspace=indent,eol,start
@@ -38,10 +39,12 @@ syntax enable
 autocmd VimEnter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
+\   'python': ['autopep8', 'isort'],
 \}
 
 " Trigger configuration for utlisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
