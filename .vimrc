@@ -6,6 +6,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " javascript related
 Plug 'mattn/emmet-vim'
@@ -32,6 +33,7 @@ set number
 
 " for html files, 2 spaces
 autocmd Filetype html,javascript setlocal ts=2 sw=2
+autocmd Filetype go setlocal ts=4 sw=4
 "Theme
 syntax enable
 
@@ -55,3 +57,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 let g:user_emmet_leader_key='<C-Z>'
+
+let g:go_highlight_structs = 0
+let g:go_highlight_interfaces = 0
+let g:go_highlight_operators = 0
