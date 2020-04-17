@@ -1,12 +1,14 @@
 "Plug in stuff
 call plug#begin('~/.vim/plugged')
 
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jalvesaq/Nvim-R'
+Plug 'wlangstroth/vim-racket'
 
 " javascript related
 Plug 'mattn/emmet-vim'
@@ -32,7 +34,7 @@ set noequalalways
 set number
 
 " for html files, 2 spaces
-autocmd Filetype html,javascript setlocal ts=2 sw=2
+autocmd Filetype html,javascript,racket,scheme setlocal ts=2 sw=2
 autocmd Filetype go setlocal ts=4 sw=4
 "Theme
 syntax enable
@@ -41,12 +43,11 @@ syntax enable
 autocmd VimEnter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-let g:ale_python_auto_pipenv = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
-\   'python': ['autopep8', 'isort'],
+\   'python': ['black'],
 \}
 
 " Trigger configuration for utlisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
