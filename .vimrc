@@ -1,7 +1,7 @@
 "Plug in stuff
 call plug#begin('~/.vim/plugged')
 
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
@@ -13,6 +13,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'thosakwe/vim-flutter'
 
 " javascript related
 Plug 'mattn/emmet-vim'

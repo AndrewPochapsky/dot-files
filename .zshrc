@@ -5,7 +5,7 @@
 export ANDROID_SDK=$HOME/Library/Android/sdk
 export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
 
-export PATH="$PATH:`pwd`/flutter/bin"
+export PATH="$PATH:$HOME/flutter/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/andrew/.oh-my-zsh"
