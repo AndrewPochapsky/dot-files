@@ -13,6 +13,8 @@ Plug 'wlangstroth/vim-racket'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " javascript related
 Plug 'mattn/emmet-vim'
@@ -36,14 +38,13 @@ set number
 
 " for html files, 2 spaces
 autocmd Filetype html,javascript,racket,scheme,dart setlocal ts=2 sw=2
-autocmd Filetype go setlocal ts=4 sw=4
+autocmd Filetype go,java setlocal ts=4 sw=4
 "Theme
 syntax enable
 colorscheme gruvbox
 
-"TODO: this no longer works properly after adding coc.nvim
 " NERDTree config
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " changes the suggestions menu to not look pink
@@ -67,6 +68,13 @@ let g:go_highlight_interfaces = 0
 let g:go_highlight_operators = 0
 let dart_format_on_save = 1
 
+"Java config
+let java_highlight_functions = 1
+let java_highlight_all = 1
+
+
+nnoremap <C-p> :GFiles<CR>
+
 "coc config
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -82,3 +90,4 @@ set signcolumn=yes
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
+
