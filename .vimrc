@@ -5,8 +5,6 @@ Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jalvesaq/Nvim-R'
 Plug 'wlangstroth/vim-racket'
@@ -16,11 +14,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 " javascript related
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jelera/vim-javascript-syntax'
+
+" Only nvim plugins
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 call plug#end()
 
 "Basic things
@@ -33,34 +37,44 @@ set backspace=indent,eol,start
 set hidden
 set ruler
 set wildmenu
+set noswapfile
 set noequalalways
-set number
+set colorcolumn=80
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
+set tabstop=4
+set shiftwidth=4
+set path+=**
+set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*
 
-" for html files, 2 spaces
-autocmd Filetype html,javascript,racket,scheme,dart setlocal ts=2 sw=2
-autocmd Filetype go,java setlocal ts=4 sw=4
 "Theme
 syntax enable
 colorscheme gruvbox
+
+set background=dark
+" for html files, 2 spaces
+autocmd Filetype html,css,javascript,typescript,typescriptreact,racket,scheme,dart setlocal ts=2 sw=2
+autocmd Filetype go,java setlocal ts=4 sw=4
+
+" Remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " NERDTree config
 "autocmd VimEnter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" changes the suggestions menu to not look pink
-"highlight Pmenu ctermbg=gray guibg=gray
-
 " allows scrolling through the suggestions menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
-" Trigger configuration for utlisnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+nnoremap <C-p> :GFiles<CR>
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" When you press <c-b> in term, it converts it into a file you can
+" navigate.
+tnoremap <c-b> <c-\><c-n>
 let g:user_emmet_leader_key='<C-Z>'
 
 let g:go_highlight_structs = 0
@@ -72,8 +86,6 @@ let dart_format_on_save = 1
 let java_highlight_functions = 1
 let java_highlight_all = 1
 
-
-nnoremap <C-p> :GFiles<CR>
 
 "coc config
 
@@ -88,6 +100,4 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
 
