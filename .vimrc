@@ -1,4 +1,4 @@
-";Plug in stuff
+" Plug in stuff
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -25,6 +25,7 @@ Plug 'jelera/vim-javascript-syntax'
 
 " Only nvim plugins
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+
 call plug#end()
 
 "Basic things
@@ -40,10 +41,14 @@ set wildmenu
 set noswapfile
 set noequalalways
 set colorcolumn=80
-set number                     " Show current line number
-set relativenumber             " Show relative line numbers
+set number
+set relativenumber
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
+set expandtab
+
+" Fuzzy find using :find
 set path+=**
 set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*
 
@@ -52,15 +57,13 @@ syntax enable
 colorscheme gruvbox
 
 set background=dark
-" for html files, 2 spaces
-autocmd Filetype html,css,javascript,typescript,typescriptreact,racket,scheme,dart setlocal ts=2 sw=2
-autocmd Filetype go,java setlocal ts=4 sw=4
+
+autocmd Filetype html,css,javascript,typescript,typescriptreact,racket,scheme,dart setlocal sts=2 ts=2 sw=2
 
 " Remove trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
 " NERDTree config
-"autocmd VimEnter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " allows scrolling through the suggestions menu
@@ -99,5 +102,3 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
-
-
