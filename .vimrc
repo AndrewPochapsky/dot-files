@@ -1,5 +1,6 @@
 " Plug in stuff
 call plug#begin('~/.vim/plugged')
+
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
