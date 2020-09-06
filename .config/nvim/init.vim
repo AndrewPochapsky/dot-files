@@ -17,3 +17,15 @@ autocmd WinEnter *
  \ endif
 
 "let g:vim_be_good_floating = 0
+
+function! FormatOCaml()
+    silent execute "!echo hello"
+    if &filetype != 'ocaml'
+        return 0
+    endif
+    let l:path = @%
+    silent execute "!ocamlformat " . l:path . " -i"
+    silent execute "e!"
+endfunction
+
+autocmd BufWritePre * call FormatOCaml()

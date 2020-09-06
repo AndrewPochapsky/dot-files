@@ -104,3 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# opam configuration
+test -r /Users/andrew/.opam/opam-init/init.zsh && . /Users/andrew/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+eval `opam config env`
