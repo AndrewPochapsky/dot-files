@@ -10,6 +10,7 @@ tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
 tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
 
 command! EditConfig e ~/.config/nvim/init.vim
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 autocmd Filetype ocaml let b:AutoPairs = {}
 
@@ -17,17 +18,3 @@ autocmd WinEnter *
  \ if &buftype ==# 'terminal' |
  \  startinsert |
  \ endif
-
-"let g:vim_be_good_floating = 0
-
-function! FormatOCaml()
-    if &filetype != 'ocaml'
-        return 0
-    endif
-    let l:path = @%
-    silent execute "!ocamlformat " . l:path . " -i"
-    silent execute "e!"
-    silent execute "w"
-endfunction
-
-autocmd BufWritePost * call FormatOCaml()
