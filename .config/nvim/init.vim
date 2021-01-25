@@ -12,9 +12,5 @@ tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
 command! EditConfig e ~/.config/nvim/init.vim
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-autocmd Filetype ocaml let b:AutoPairs = {}
-
-autocmd WinEnter *
- \ if &buftype ==# 'terminal' |
- \  startinsert |
- \ endif
+command! VT vsplit | term
+command! HT split | term
