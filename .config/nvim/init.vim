@@ -14,3 +14,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 command! VT vsplit | term
 command! HT split | term
+
+autocmd WinEnter *
+ \ if &buftype ==# 'terminal' |
+ \  startinsert |
+ \ endif
