@@ -1,12 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 #android paths
 export ANDROID_SDK=$HOME/Library/Android/sdk
 export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
 
 export PATH="$PATH:$HOME/flutter/bin"
+
+export PATH=$PATH:~/.local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/andrew/.oh-my-zsh"
@@ -109,3 +113,7 @@ source $ZSH/oh-my-zsh.sh
 test -r /Users/andrew/.opam/opam-init/init.zsh && . /Users/andrew/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 eval `opam config env`
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
