@@ -1,8 +1,3 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath = &runtimepath
-"source ~/.vimrc
-
-" Plug in stuff
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -23,7 +18,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jelera/vim-javascript-syntax'
 
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
@@ -50,12 +45,12 @@ set expandtab
 " Fuzzy find using :find
 set path+=**
 set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*
+
 let mapleader = " "
 
 "Theme
 syntax enable
 colorscheme gruvbox
-
 set background=dark
 
 autocmd Filetype html,css,java,javascript,typescript,typescriptreact setlocal sts=2 ts=2 sw=2
@@ -70,7 +65,7 @@ map <C-n> :NERDTreeToggle<CR>
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 
-nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>f :GFiles<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -78,6 +73,18 @@ nmap <silent> gr <Plug>(coc-references)
 " When you press <c-b> in term, it converts it into a file you can
 " navigate.
 tnoremap <c-b> <c-\><c-n>
+
+tnoremap <Esc> <C-\><C-n>
+
+" Making terminal work like in normal vim.
+tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
+tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
+
+nnoremap <C-p> :call SwitchToTerminal() <CR>
+tmap <C-p> <Esc> :call SwitchToTerminal() <CR>
+
 let g:user_emmet_leader_key='<C-Z>'
 
 let g:go_highlight_structs = 0
@@ -99,17 +106,6 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
-tnoremap <Esc> <C-\><C-n>
-let mapleader = " "
-
-" Making terminal work like in normal vim.
-tnoremap <C-w><C-h> <C-\><C-n><C-w><C-h>
-tnoremap <C-w><C-j> <C-\><C-n><C-w><C-j>
-tnoremap <C-w><C-k> <C-\><C-n><C-w><C-k>
-tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
-
-nnoremap <leader>p :call SwitchToTerminal() <CR>
-
 command! EditConfig e ~/.config/nvim/init.vim
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
