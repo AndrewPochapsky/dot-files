@@ -25,7 +25,7 @@ call plug#end()
 "Basic things
 set incsearch
 set ignorecase
-set hlsearch
+set nohlsearch
 set smartcase
 set autoindent
 set backspace=indent,eol,start
@@ -58,6 +58,11 @@ autocmd Filetype html,css,java,javascript,typescript,typescriptreact setlocal st
 " Remove trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
+autocmd WinEnter *
+ \ if &buftype ==# 'terminal' |
+ \  startinsert |
+ \ endif
+
 " NERDTree config
 map <C-n> :NERDTreeToggle<CR>
 
@@ -85,6 +90,19 @@ tnoremap <C-w><C-l> <C-\><C-n><C-w><C-l>
 nnoremap <C-p> :call SwitchToTerminal() <CR>
 tmap <C-p> <Esc> :call SwitchToTerminal() <CR>
 
+"Keep things centred
+noremap n nzzzv
+noremap N Nzzzv
+noremap J mzJ`z
+
+"Moving lines in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"Jump list mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
 let g:user_emmet_leader_key='<C-Z>'
 
 let g:go_highlight_structs = 0
@@ -108,11 +126,6 @@ set shortmess+=c
 set signcolumn=yes
 command! EditConfig e ~/.config/nvim/init.vim
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-"autocmd WinEnter *
-" \ if &buftype ==# 'terminal' |
-" \  startinsert |
-" \ endif
 
 let s:has_terminal_tab = 0
 function! SwitchToTerminal()
