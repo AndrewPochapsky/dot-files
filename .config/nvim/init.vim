@@ -26,7 +26,7 @@ call plug#end()
 
 " Fuzzy find using :find
 set path+=**
-set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*,*/target/*
+set wildignore+=*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*,*/target/*,*/artifacts/*
 
 let mapleader = " "
 
