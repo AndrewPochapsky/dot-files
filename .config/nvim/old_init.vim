@@ -35,7 +35,7 @@ syntax enable
 colorscheme gruvbox
 set background=dark
 
-autocmd Filetype html,css,java,javascript,typescript,typescriptreact setlocal sts=2 ts=2 sw=2
+autocmd Filetype html,css,java,javascript,typescript,typescriptreact,javascriptreact setlocal sts=2 ts=2 sw=2
 
 " Remove trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
