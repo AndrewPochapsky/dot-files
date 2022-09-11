@@ -7,7 +7,8 @@ return require("packer").startup(function(use)
     use("wbthomason/packer.nvim") -- Package Manager
     use('nvim-lua/plenary.nvim') -- Async support
 
-    use("morhetz/gruvbox") -- Colour Scheme
+    use('folke/tokyonight.nvim') -- Colour Scheme
+    --use("morhetz/gruvbox") -- Colour Scheme
     use("scrooloose/nerdtree")
 
     use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
@@ -27,4 +28,9 @@ return require("packer").startup(function(use)
     }
 
     use('kyazdani42/nvim-web-devicons') -- Icons
+
+    use {
+        "windwp/nvim-autopairs",
+         config = function() require("nvim-autopairs").setup {} end
+    }
 end)
