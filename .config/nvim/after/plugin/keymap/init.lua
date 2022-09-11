@@ -4,7 +4,6 @@ local nnoremap = Keymap.nnoremap
 local vnoremap = Keymap.vnoremap
 local xnoremap = Keymap.nnoremap
 
-
 nnoremap("<leader>dj", vim.diagnostic.goto_next)
 nnoremap("<leader>dk", vim.diagnostic.goto_prev)
 
@@ -23,4 +22,4 @@ vnoremap("K", ":m '<-2<CR>gv=gv")
 
 nmap("<C-n>", "<cmd>NERDTreeToggle<CR>")
 -- Allows pasting and overriding without losing paste register
-xnoremap("<leader>p", "\"_dP")
+xnoremap("<leader>p", '"_dP')
