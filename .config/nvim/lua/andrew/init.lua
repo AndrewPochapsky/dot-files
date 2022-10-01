@@ -3,6 +3,7 @@ require("andrew.format")
 require("andrew.lsp")
 require("andrew.packer")
 require("andrew.telescope")
+require("andrew.debugger")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

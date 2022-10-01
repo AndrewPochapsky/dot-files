@@ -4,8 +4,8 @@ local nnoremap = Keymap.nnoremap
 local vnoremap = Keymap.vnoremap
 local xnoremap = Keymap.nnoremap
 
-nnoremap("<leader>dj", vim.diagnostic.goto_next)
-nnoremap("<leader>dk", vim.diagnostic.goto_prev)
+nnoremap("<leader>qj", vim.diagnostic.goto_next)
+nnoremap("<leader>qk", vim.diagnostic.goto_prev)
 
 -- Easier quickfix list navigation
 nnoremap("]q", "<CMD>cnext<CR>zz")

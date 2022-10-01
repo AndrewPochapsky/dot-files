@@ -37,5 +37,10 @@ return require("packer").startup(function(use)
     })
 
     use("mhartington/formatter.nvim") -- Formatting engine
-    use("theprimeagen/harpoon")
+    use("theprimeagen/harpoon") -- blazingly fast
+
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("leoluz/nvim-dap-go")
 end)
