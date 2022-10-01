@@ -43,4 +43,9 @@ return require("packer").startup(function(use)
     use("rcarriga/nvim-dap-ui")
     use("theHamsta/nvim-dap-virtual-text")
     use("leoluz/nvim-dap-go")
+
+    use({
+        "nvim-lualine/lualine.nvim", -- Status line
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
 end)
