@@ -10,27 +10,24 @@ local function lspRemaps()
     nnoremap("<leader>r", vim.lsp.buf.rename, { buffer = 0 })
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function()
+        lspRemaps()
+    end,
+})
+
 -- Go setup
 require("lspconfig").gopls.setup({
     capabilities = capabilities,
-    on_attach = function()
-        lspRemaps()
-    end,
 })
 
 -- Typescript setup
 require("lspconfig").tsserver.setup({
     capabilities = capabilities,
-    on_attach = function()
-        lspRemaps()
-    end,
 })
 
 -- Lua setup
 require("lspconfig").sumneko_lua.setup({
-    on_attach = function()
-        lspRemaps()
-    end,
     settings = {
         Lua = {
             runtime = {
