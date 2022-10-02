@@ -32,7 +32,16 @@ autocmd("FileType", {
     end,
 })
 
--- Enter terminals right away
+-- Initial setup for when you first open a terminal
+autocmd("TermOpen", {
+    group = group,
+    callback = function()
+        vim.cmd("startinsert")
+        vim.cmd("set norelativenumber")
+    end,
+})
+
+-- For when you enter the terminal subsequent times
 autocmd("WinEnter", {
     group = group,
     pattern = "zsh",

@@ -9,13 +9,15 @@ vim.opt.ruler = true
 vim.opt.wildmenu = true
 vim.opt.swapfile = false
 vim.opt.equalalways = false
+vim.opt.signcolumn = "yes"
 --vim.opt.colorcolumn=120
-vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.wrap = false
+vim.opt.ch = 0
 
 vim.g.mapleader = " "
