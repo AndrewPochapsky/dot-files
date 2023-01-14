@@ -36,8 +36,8 @@ autocmd("FileType", {
 autocmd("TermOpen", {
     group = group,
     callback = function()
-        vim.cmd("startinsert")
-        vim.cmd("set norelativenumber")
+        vim.cmd("set nonu")
+        vim.cmd("set nornu")
     end,
 })
 
