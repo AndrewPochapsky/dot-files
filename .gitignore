@@ -6,4 +6,10 @@
 .config/*
 
 !.config/nvim
+!.config/i3
+!.config/i3status
+!.config/i3blocks
+!.config/kitty
+!.config/polybar
+!.config/scripts
 .config/nvim/.netrwhist
