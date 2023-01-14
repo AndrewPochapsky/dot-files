@@ -4,6 +4,8 @@ local dapui = require("dapui")
 local dap_go = require("dap-go")
 local dap_text = require("nvim-dap-virtual-text")
 
+require("andrew.debugger.cpp")
+
 dap_go.setup()
 dap_text.setup({})
 dapui.setup({
@@ -19,7 +21,7 @@ dapui.setup({
         },
         {
             elements = {
-                "repl",
+                --"repl",
                 "console",
             },
             size = 0.25, -- 25% of total lines

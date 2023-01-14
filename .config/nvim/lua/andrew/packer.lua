@@ -48,4 +48,12 @@ return require("packer").startup(function(use)
         "nvim-lualine/lualine.nvim", -- Status line
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+
+    use({
+        "vlime/vlime",
+        config = function()
+            rtp = "vim/"
+        end,
+    })
+    --use("kovisoft/paredit")
 end)

@@ -27,6 +27,9 @@ require("formatter").setup({
             -- "lua" filetype
             require("formatter.filetypes.lua").stylua,
         },
+        rust = {
+            require("formatter.filetypes.rust").rustfmt,
+        },
         -- other formatters ...
     },
 })

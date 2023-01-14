@@ -12,12 +12,13 @@ vim.opt.equalalways = false
 vim.opt.signcolumn = "yes"
 --vim.opt.colorcolumn=120
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.wrap = false
-vim.opt.ch = 0
+vim.opt.ch = 1
 
 vim.g.mapleader = " "

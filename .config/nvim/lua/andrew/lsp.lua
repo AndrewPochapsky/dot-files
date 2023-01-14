@@ -26,6 +26,26 @@ require("lspconfig").tsserver.setup({
     capabilities = capabilities,
 })
 
+--Rust setup
+require("lspconfig").rust_analyzer.setup({
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                allFeatures = true,
+                overrideCommand = {
+                    "cargo",
+                    "clippy",
+                    "--workspace",
+                    "--message-format=json",
+                    "--all-targets",
+                    "--all-features",
+                },
+            },
+        },
+    },
+})
+
 -- Lua setup
 require("lspconfig").sumneko_lua.setup({
     settings = {
