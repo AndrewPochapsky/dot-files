@@ -138,16 +138,16 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+#bindsym $mod+Shift+1 move container to workspace number $ws1
+#bindsym $mod+Shift+2 move container to workspace number $ws2
+#bindsym $mod+Shift+3 move container to workspace number $ws3
+#bindsym $mod+Shift+4 move container to workspace number $ws4
+#bindsym $mod+Shift+5 move container to workspace number $ws5
+#bindsym $mod+Shift+6 move container to workspace number $ws6
+#bindsym $mod+Shift+7 move container to workspace number $ws7
+#bindsym $mod+Shift+8 move container to workspace number $ws8
+#bindsym $mod+Shift+9 move container to workspace number $ws9
+#bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,17 +191,17 @@ smart_gaps on
 # Window colours
 set $bgcolor    #00897b66
 set $ibgcolor   #363636
-set $fws	#00897b80
+set $fws	    #00897b80
 set $barcolor	#00897b80
 set $textcolor  #ffffff
 set $itextcolor #969696
 set $ubgcolor   #ff0000
 
-#		 	border		background		text		indicator
+#		 	            border		    background		        text		indicator
 client.focused          $bgcolor        $bgcolor                $textcolor      $bgcolor
 client.unfocused        $ibgcolor       $ibgcolor               $itextcolor     $ibgcolor
 client.focused_inactive $ibgcolor       $ibgcolor               $itextcolor     $ibgcolor
-client.urgent 		$ubgcolor       $ubgcolor               $textcolor      $ubgcolor
+client.urgent 		    $ubgcolor       $ubgcolor               $textcolor      $ubgcolor
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -228,6 +228,14 @@ bindsym $mod+x exec i3lock
 # Assign Programs to Workspaces
 #for_window [class="firefox"] move to workspace $ws2
 for_window [class="Spotify"] move to workspace $ws3
+for_window [class="discord"] move to workspace $ws4
+for_window [class="Signal"] move to workspace $ws5
+
+bindsym $mod+Shift+t workspace number $ws1
+bindsym $mod+Shift+f workspace number $ws2
+bindsym $mod+Shift+s workspace number $ws3
+bindsym $mod+Shift+d workspace number $ws4
+bindsym $mod+Shift+w workspace number $ws5
 
 # Window Compositor
 exec_always picom --fade-in-step=1.0 --fade-out-step=1.0
