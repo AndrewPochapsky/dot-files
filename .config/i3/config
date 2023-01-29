@@ -125,6 +125,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -227,17 +228,24 @@ exec_always feh --bg-fill /home/andrew/Wallpapers/potion.jpg
 bindsym $mod+x exec i3lock
 
 # Assign Programs to Workspaces
-#for_window [class="firefox"] move to workspace $ws2
-for_window [class="Spotify"] move to workspace $ws3
+for_window [class="Signal"] move to workspace $ws3
 for_window [class="discord"] move to workspace $ws4
-for_window [class="Signal"] move to workspace $ws5
+for_window [class="Steam"] move to workspace $ws5
 
 bindsym $mod+Shift+t workspace number $ws1
-bindsym $mod+Shift+f workspace number $ws2
+bindsym $mod+Shift+b workspace number $ws2
 bindsym $mod+Shift+s workspace number $ws3
 bindsym $mod+Shift+d workspace number $ws4
 bindsym $mod+Shift+w workspace number $ws5
 bindsym $mod+Shift+g workspace number $ws6
+
+# Mod1 == Alt
+bindsym $mod+Mod1+t move container to workspace number $ws1
+bindsym $mod+Mod1+b move container to workspace number $ws2
+bindsym $mod+Mod1+s move container to workspace number $ws3
+bindsym $mod+Mod1+d move container to workspace number $ws4
+bindsym $mod+Mod1+w move container to workspace number $ws5
+bindsym $mod+Mod1+g move container to workspace number $ws6
 
 # Window Compositor
 exec_always picom --fade-in-step=1.0 --fade-out-step=1.0
