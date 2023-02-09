@@ -252,3 +252,9 @@ exec_always picom --fade-in-step=1.0 --fade-out-step=1.0
 
 # Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Redshift
+exec redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq -r '"\(.location.lat):\(.location.lng)"')
+
+# Have no title bar.
+new_window 1pixel
