@@ -55,5 +55,6 @@ return require("packer").startup(function(use)
             rtp = "vim/"
         end,
     })
+    use("iden3/vim-circom-syntax")
     --use("kovisoft/paredit")
 end)
