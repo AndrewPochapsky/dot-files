@@ -16,18 +16,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+configs.solidity = {
+    default_config = {
+        cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+        filetypes = { "solidity" },
+        root_dir = lspconfig.util.find_git_ancestor,
+        single_file_support = true,
+    },
+}
+
+lspconfig.solidity.setup({})
+
 -- Go setup
-require("lspconfig").gopls.setup({
+lspconfig.gopls.setup({
     capabilities = capabilities,
 })
 
 -- Typescript setup
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
     capabilities = capabilities,
 })
 
 --Rust setup
-require("lspconfig").rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
     capabilities = capabilities,
     settings = {
         ["rust-analyzer"] = {
@@ -47,7 +61,7 @@ require("lspconfig").rust_analyzer.setup({
 })
 
 -- Lua setup
-require("lspconfig").sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
     settings = {
         Lua = {
             runtime = {
