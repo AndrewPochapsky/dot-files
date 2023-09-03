@@ -20,9 +20,11 @@ return require("packer").startup(function(use)
 
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" }) -- Fuzzy finder
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- Make fuzzy finder faster
+    --use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", })
     use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
     })
 
     use({
