@@ -8,8 +8,6 @@ return require("packer").startup(function(use)
     use("nvim-lua/plenary.nvim") -- Async support
 
     use("folke/tokyonight.nvim") -- Colour Scheme
-    --use("morhetz/gruvbox") -- Colour Scheme
-    use("scrooloose/nerdtree")
 
     use("neovim/nvim-lspconfig") -- Configurations for Nvim LSP
 
@@ -26,8 +24,6 @@ return require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     })
-
-    use("kyazdani42/nvim-web-devicons") -- Icons
 
     use({
         "windwp/nvim-autopairs",
@@ -46,7 +42,7 @@ return require("packer").startup(function(use)
 
     use({
         "nvim-lualine/lualine.nvim", -- Status line
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
     })
 
     use({
@@ -56,5 +52,16 @@ return require("packer").startup(function(use)
         end,
     })
     use("iden3/vim-circom-syntax")
+    use("christoomey/vim-tmux-navigator")
     --use("kovisoft/paredit")
+    use("nvim-tree/nvim-web-devicons")
+    use({
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+    })
 end)

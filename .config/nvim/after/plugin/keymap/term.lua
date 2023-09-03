@@ -11,6 +11,3 @@ tnoremap("<C-w><C-h>", "<C-\\><C-n><C-w><C-h>")
 tnoremap("<C-w><C-j>", "<C-\\><C-n><C-w><C-j>")
 tnoremap("<C-w><C-k>", "<C-\\><C-n><C-w><C-k>")
 tnoremap("<C-w><C-l>", "<C-\\><C-n><C-w><C-l>")
-
-nnoremap("<C-p>", require("andrew.term").switchToTerm)
-tmap("<C-p>", "<CMD>tabfirst<CR>")

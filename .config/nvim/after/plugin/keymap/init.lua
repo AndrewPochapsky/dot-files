@@ -20,6 +20,6 @@ nnoremap("J", "mzJ`z")
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
-nmap("<C-n>", "<cmd>NERDTreeToggle<CR>")
+nmap("<C-n>", "<cmd>Neotree toggle<CR>")
 -- Allows pasting and overriding without losing paste register
 xnoremap("<leader>p", '"_dP')

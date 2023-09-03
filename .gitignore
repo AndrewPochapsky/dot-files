@@ -1,7 +1,6 @@
 /*
 !.vimrc
 !.zshrc
-!.tmux.conf
 
 !.config/
 .config/*
@@ -14,4 +13,5 @@
 !.config/polybar
 !.config/scripts
 !.config/tmux
+.config/tmux/plugins
 .config/nvim/.netrwhist

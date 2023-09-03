@@ -7,18 +7,18 @@ nnoremap("<leader>a", harpoon_mark.add_file)
 nnoremap("<C-e>", harpoon_ui.toggle_quick_menu)
 nnoremap("<C-e>", harpoon_ui.toggle_quick_menu)
 
-nnoremap("<C-j>", function()
+nnoremap("<leader>j", function()
     harpoon_ui.nav_file(1)
 end)
 
-nnoremap("<C-k>", function()
+nnoremap("<leader>k", function()
     harpoon_ui.nav_file(2)
 end)
 
-nnoremap("<C-l>", function()
+nnoremap("<leader>l", function()
     harpoon_ui.nav_file(3)
 end)
 
-nnoremap("<C-;>", function()
+nnoremap("<leader>;", function()
     harpoon_ui.nav_file(4)
 end)
