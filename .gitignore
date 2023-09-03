@@ -13,4 +13,5 @@
 !.config/kitty
 !.config/polybar
 !.config/scripts
+!.config/tmux
 .config/nvim/.netrwhist
