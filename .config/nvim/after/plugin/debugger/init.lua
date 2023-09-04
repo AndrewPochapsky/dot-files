@@ -1,10 +1,9 @@
-local nnoremap = require("andrew.keymap").nnoremap
 local dap = require("dap")
 local dapui = require("dapui")
 local dap_go = require("dap-go")
 local dap_text = require("nvim-dap-virtual-text")
 
-require("andrew.debugger.cpp")
+require("debugger.cpp")
 
 dap_go.setup()
 dap_text.setup({})
@@ -34,13 +33,13 @@ dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-nnoremap("<leader>dl", dap.step_into) -- step into
-nnoremap("<leader>dj", dap.step_over) -- step over
-nnoremap("<leader>dk", dap.step_out) -- step out
-nnoremap("<leader>d<space>", dap.continue) -- continue
+vim.keymap.set("n", "<leader>dl", dap.step_into) -- step into
+vim.keymap.set("n", "<leader>dj", dap.step_over) -- step over
+vim.keymap.set("n", "<leader>dk", dap.step_out) -- step out
+vim.keymap.set("n", "<leader>d<space>", dap.continue) -- continue
 
-nnoremap("<leader>drc", dap.run_to_cursor) -- run to cursor
-nnoremap("<leader>dbp", dap.toggle_breakpoint) -- toggle breakpoint
-nnoremap("<leader>dcbp", function() -- toggle conditional breakpoint
+vim.keymap.set("n", "<leader>drc", dap.run_to_cursor) -- run to cursor
+vim.keymap.set("n", "<leader>dbp", dap.toggle_breakpoint) -- toggle breakpoint
+vim.keymap.set("n", "<leader>dcbp", function() -- toggle conditional breakpoint
     dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)

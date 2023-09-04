@@ -1,9 +1,6 @@
 require("andrew.set")
-require("andrew.format")
-require("andrew.lsp")
 require("andrew.packer")
-require("andrew.telescope")
-require("andrew.debugger")
+require("andrew.remap")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -54,3 +51,6 @@ autocmd("VimEnter", {
     group = group,
     command = "Neotree current",
 })
+
+local home_dir = os.getenv("HOME")
+package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path
