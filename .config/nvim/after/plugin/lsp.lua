@@ -1,13 +1,52 @@
-local nnoremap = require("andrew.keymap").nnoremap
-local capabilities = require("andrew.cmp").capabilities
+-- Set up nvim-cmp.
+local cmp = require("cmp")
+
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+        end,
+    },
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+    },
+
+    mapping = cmp.mapping.preset.insert({
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" }, -- For luasnip users.
+    }, {
+        { name = "buffer" },
+    }),
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype("gitcommit", {
+    sources = cmp.config.sources({
+        { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+        { name = "buffer" },
+    }),
+})
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function lspRemaps()
-    nnoremap("K", vim.lsp.buf.hover, { buffer = 0 })
-    nnoremap("<leader>vd", vim.lsp.buf.definition, { buffer = 0 })
-    nnoremap("<leader>vi", vim.lsp.buf.implementation, { buffer = 0 })
-    nnoremap("<leader>vt", vim.lsp.buf.type_definition, { buffer = 0 })
-    nnoremap("<leader>vr", vim.lsp.buf.references, { buffer = 0 })
-    nnoremap("<leader>r", vim.lsp.buf.rename, { buffer = 0 })
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vd", vim.lsp.buf.definition, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vi", vim.lsp.buf.implementation, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vt", vim.lsp.buf.type_definition, { buffer = 0 })
+    vim.keymap.set("n", "<leader>vr", vim.lsp.buf.references, { buffer = 0 })
+    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = 0 })
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -28,7 +67,9 @@ configs.solidity = {
     },
 }
 
-lspconfig.solidity.setup({})
+lspconfig.solidity.setup({
+    capabilities = capabilities,
+})
 
 -- Go setup
 lspconfig.gopls.setup({
@@ -86,5 +127,5 @@ lspconfig.lua_ls.setup({
     },
 })
 
-vim.o.updatetime = 250
+-- TODO: This is causing some problems, maybe look for a way to toggle it instead of making it automatic.
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
