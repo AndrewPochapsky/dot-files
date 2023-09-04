@@ -20,5 +20,6 @@ vim.opt.expandtab = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.wrap = false
 vim.opt.ch = 1
+vim.opt.cmdheight = 0
 
 vim.g.mapleader = " "
