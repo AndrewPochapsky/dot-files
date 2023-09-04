@@ -49,3 +49,8 @@ autocmd("WinEnter", {
         vim.cmd("startinsert")
     end,
 })
+
+autocmd("VimEnter", {
+    group = group,
+    command = "Neotree current",
+})
