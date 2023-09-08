@@ -21,6 +21,9 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("t", "<C-b>", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+vim.keymap.set("n", "<C-p>", require("andrew.term").switchToTerm)
+vim.keymap.set("t", "<C-p>", "<CMD>tabfirst<CR>")
+
 -- Making terminal work like in normal vim.
 vim.keymap.set("t", "<C-w><C-h>", "<C-\\><C-n><C-w><C-h>")
 vim.keymap.set("t", "<C-w><C-j>", "<C-\\><C-n><C-w><C-j>")
