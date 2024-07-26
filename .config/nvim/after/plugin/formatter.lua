@@ -30,6 +30,9 @@ require("formatter").setup({
         rust = {
             require("formatter.filetypes.rust").rustfmt,
         },
+        haskell = {
+            require("formatter.filetypes.haskell").stylish_haskell,
+        },
         -- other formatters ...
     },
 })

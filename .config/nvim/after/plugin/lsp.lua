@@ -81,11 +81,22 @@ lspconfig.tsserver.setup({
     capabilities = capabilities,
 })
 
+-- Haskell
+lspconfig.hls.setup({
+    capabilities = capabilities,
+})
+
 --Rust setup
 lspconfig.rust_analyzer.setup({
     capabilities = capabilities,
     settings = {
         ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+            check = {
+                allFeatures = true,
+            },
             checkOnSave = {
                 allFeatures = true,
                 overrideCommand = {

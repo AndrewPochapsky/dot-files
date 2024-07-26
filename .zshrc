@@ -147,3 +147,5 @@ alias vlime='sbcl --load ~/.local/share/nvim/site/pack/packer/start/vlime/lisp/s
 alias doit='sudo $(fc -ln -1)'
 
 export BROWSER='/usr/bin/librewolf'
+
+[ -f "/Users/andrew/.ghcup/env" ] && source "/Users/andrew/.ghcup/env" # ghcup-env
