@@ -13,5 +13,6 @@
 !.config/polybar
 !.config/scripts
 !.config/tmux
-.config/tmux/plugins
+!.config/tmux
+!.config/tmux/plugins
 .config/nvim/.netrwhist
