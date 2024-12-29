@@ -23,3 +23,4 @@ vim.opt.ch = 1
 vim.opt.cmdheight = 0
 vim.o.updatetime = 50
 vim.g.mapleader = " "
+--vim.cmd("let g:zig_fmt_autosave = 0")

@@ -4,6 +4,7 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
+    use("nvim-neotest/nvim-nio")
     use("wbthomason/packer.nvim") -- Package Manager
     use("nvim-lua/plenary.nvim") -- Async support
 
@@ -18,8 +19,12 @@ return require("packer").startup(function(use)
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
 
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.2" }) -- Fuzzy finder
+    use({ "nvim-telescope/telescope.nvim", tag = "0.1.8" }) -- Fuzzy finder
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- Make fuzzy finder faster
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    })
     use({
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
